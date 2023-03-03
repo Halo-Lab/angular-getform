@@ -1,0 +1,30 @@
+import { ApplicationRef, ComponentFactoryResolver, ElementRef, Injector } from '@angular/core';
+import { TooltipPosition } from './tooltip.enums';
+import * as i0 from "@angular/core";
+export declare class TooltipDirective {
+    private elementRef;
+    private appRef;
+    private componentFactoryResolver;
+    private injector;
+    tooltip: string;
+    position: TooltipPosition;
+    showDelay: number;
+    hideDelay: number;
+    private componentRef;
+    private showTimeout?;
+    private hideTimeout?;
+    private touchTimeout?;
+    constructor(elementRef: ElementRef, appRef: ApplicationRef, componentFactoryResolver: ComponentFactoryResolver, injector: Injector);
+    onMouseEnter(): void;
+    onMouseLeave(): void;
+    onTouchStart($event: TouchEvent): void;
+    onTouchEnd(): void;
+    private initializeTooltip;
+    private setTooltipComponentProperties;
+    private showTooltip;
+    private setHideTooltipTimeout;
+    ngOnDestroy(): void;
+    destroy(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<TooltipDirective, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<TooltipDirective, "[tooltip]", never, { "tooltip": "tooltip"; "position": "position"; "showDelay": "showDelay"; "hideDelay": "hideDelay"; }, {}, never, never, false, never>;
+}

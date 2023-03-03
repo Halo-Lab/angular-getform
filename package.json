@@ -1,0 +1,47 @@
+{
+  "name": "angular-getform",
+  "version": "0.0.2",
+  "files": [
+    "lib/*"
+  ],
+  "license": "ISC",
+  "repository": {
+    "url": "https://github.com/Halo-Lab/angular-getform.git",
+    "type": "git"
+  },
+  "type": "module",
+  "keywords": [
+    "Angular",
+    "getform.io",
+    "integration",
+    "form"
+  ],
+  "description": "Angular custom form integration with the getform.io service",
+  "peerDependencies": {
+    "@angular/common": "^15.2.0",
+    "@angular/core": "^15.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "module": "fesm2015/angular-getform.mjs",
+  "es2020": "fesm2020/angular-getform.mjs",
+  "esm2020": "esm2020/angular-getform.mjs",
+  "fesm2020": "fesm2020/angular-getform.mjs",
+  "fesm2015": "fesm2015/angular-getform.mjs",
+  "typings": "index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "esm2020": "./esm2020/angular-getform.mjs",
+      "es2020": "./fesm2020/angular-getform.mjs",
+      "es2015": "./fesm2015/angular-getform.mjs",
+      "node": "./fesm2015/angular-getform.mjs",
+      "default": "./fesm2020/angular-getform.mjs"
+    }
+  }
+}

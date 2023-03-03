@@ -1,0 +1,7 @@
+export var TooltipPosition;
+(function (TooltipPosition) {
+    TooltipPosition["TOP"] = "top";
+    TooltipPosition["BOTTOM"] = "bottom";
+    TooltipPosition["DEFAULT"] = "top";
+})(TooltipPosition || (TooltipPosition = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidG9vbHRpcC5lbnVtcy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3Byb2plY3RzL2FuZ3VsYXItZ2V0Zm9ybS9zcmMvbGliL2NvbXBvbmVudHMvdG9vbHRpcC90b29sdGlwLmVudW1zLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE1BQU0sQ0FBTixJQUFZLGVBSVg7QUFKRCxXQUFZLGVBQWU7SUFDekIsOEJBQVcsQ0FBQTtJQUNYLG9DQUFpQixDQUFBO0lBQ2pCLGtDQUFlLENBQUE7QUFDakIsQ0FBQyxFQUpXLGVBQWUsS0FBZixlQUFlLFFBSTFCIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGVudW0gVG9vbHRpcFBvc2l0aW9uIHtcbiAgVE9QID0gJ3RvcCcsXG4gIEJPVFRPTSA9ICdib3R0b20nLFxuICBERUZBVUxUID0gJ3RvcCcsXG59XG4iXX0=
