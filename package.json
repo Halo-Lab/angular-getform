@@ -1,9 +1,6 @@
 {
-  "name": "angular-getform",
+  "name": "ng-getform",
   "version": "0.0.2",
-  "files": [
-    "lib/*"
-  ],
   "license": "ISC",
   "repository": {
     "url": "https://github.com/Halo-Lab/angular-getform.git",
@@ -24,24 +21,5 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false,
-  "module": "fesm2015/angular-getform.mjs",
-  "es2020": "fesm2020/angular-getform.mjs",
-  "esm2020": "esm2020/angular-getform.mjs",
-  "fesm2020": "fesm2020/angular-getform.mjs",
-  "fesm2015": "fesm2015/angular-getform.mjs",
-  "typings": "index.d.ts",
-  "exports": {
-    "./package.json": {
-      "default": "./package.json"
-    },
-    ".": {
-      "types": "./index.d.ts",
-      "esm2020": "./esm2020/angular-getform.mjs",
-      "es2020": "./fesm2020/angular-getform.mjs",
-      "es2015": "./fesm2015/angular-getform.mjs",
-      "node": "./fesm2015/angular-getform.mjs",
-      "default": "./fesm2020/angular-getform.mjs"
-    }
-  }
+  "sideEffects": false
 }

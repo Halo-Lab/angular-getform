@@ -1,9 +1,9 @@
-# @halo/angular-getform
+# @halo-lab/ng-getform
 
 ### To install package
 
 ```sh
-npm install @halo/angular-getform
+npm install @halo-lab/ng-getform
 ```
 
 ### To use the form in the component
@@ -11,19 +11,19 @@ npm install @halo/angular-getform
 - import Form component
 
 ```sh
-import { AngularGetformModule } from '@halo/angular-getform';
+import { NgGetformModule } from '@halo-lab/ng-getform';
 ```
 
 - add imported module to imports in main component
 
 ```sh
-imports: [AngularGetformModule]
+imports: [NgGetformModule]
 ```
 
 - use component in template
 
 ```sh
-<lib-angular-getform></lib-angular-getform>
+<lib-ng-getform></lib-ng-getform>
 ```
 
 ### Form accepts parameters

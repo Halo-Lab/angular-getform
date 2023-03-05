@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css";
+@import "https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css";
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&display=swap");
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f2f4;
+  font-family: "Lora", serif;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
