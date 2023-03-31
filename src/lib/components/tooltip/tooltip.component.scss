@@ -1,8 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&display=swap");
+@font-face {
+  font-family: MacPaw Fixel;
+  src: url(../../assets/fonts/MacPawFixel-Regular.otf);
+  font-display: swap;
+}
 
 .tooltip {
-  width: 368px;
-  max-width: 368px;
+  width: max-content;
+  max-width: 350px;
   padding: 12px;
   position: fixed;
   border-radius: 4px;
@@ -13,8 +17,7 @@
   background: #f27c74;
   border-radius: 14px;
   opacity: 0;
-  font-family: "Lora", serif;
-  box-sizing: border-box;
+  font-family: "MacPaw Fixel", serif;
 
   &::before {
     content: "";

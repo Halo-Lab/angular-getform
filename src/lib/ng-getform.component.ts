@@ -1,8 +1,7 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, HostListener, Input, HostBinding } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { TooltipPosition } from './components/tooltip/tooltip.enums';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { getErrorMessages } from './helpers';
-import { TField } from './types';
+import { addValidators, getErrorMessages } from './helpers';
 
 @Component({
   selector: 'lib-ng-getform',
@@ -11,22 +10,11 @@ import { TField } from './types';
 })
 export class NgGetformComponent {
   @Input() targetUrl: string = '';
-  @Input() fields: TField[] = [
-    {
-      type: 'text',
-      name: 'name',
-      label: 'Your name',
-      validations: [
-        {
-          type: 'required',
-          value: true,
-          errorMessage: 'Required field',
-        },
-      ],
-    },
-  ];
-  @Input() btnLabel?: string = '';
+  @Input() fields: any = [];
+  @Input() btnLabel: string = 'Send form';
   @Input() successCallback?: () => void;
+
+  @HostBinding('attr.class') @Input() className?: string = '';
 
   isFormSubmitted = false;
   isLoading = false;
@@ -36,49 +24,19 @@ export class NgGetformComponent {
   errorMessages: { [key: string]: any } = {};
 
   ngOnInit() {
-    console.log({ fields: this.fields });
-    this.fields.forEach((field) => {
-      if (field.validations)
+    this.fields.forEach((field: any) => {
+      if (field.validation) {
         this.errorMessages[field.name] = {
-          ...getErrorMessages(field.validations),
+          ...getErrorMessages(field.validation),
         };
-      this.form.addControl(
-        field.name,
-        new FormControl(
-          null,
-          !field.validations
-            ? []
-            : field.validations.reduce((acc: any, current) => {
-                if (current.type === 'required')
-                  return [...acc, Validators.required];
-                if (current.type === 'minLength')
-                  return [
-                    ...acc,
-                    Validators.minLength(Number(current.value)) || 2,
-                  ];
-                if (current.type === 'maxLength')
-                  return [
-                    ...acc,
-                    Validators.maxLength(Number(current.value) || 10),
-                  ];
-                if (current.type === 'max')
-                  return [...acc, Validators.max(Number(current.value) || 100)];
-                if (current.type === 'min')
-                  return [...acc, Validators.min(Number(current.value) || 0)];
-                if (current.type === 'pattern')
-                  return [
-                    ...acc,
-                    Validators.pattern(String(current.value) || '[a-zA-Z" "]+'),
-                  ];
-                if (current.type === 'email') return [...acc, Validators.email];
-                return [...acc];
-              }, [])
-        )
-      );
-    });
+      }
+      this.form.addControl(field.name, new FormControl(null, !field.validation
+        ? []
+        : addValidators(field.validation)))
+    })
   }
 
-  constructor() {}
+  constructor() { }
 
   onSubmit() {
     this.isFormSubmitted = true;

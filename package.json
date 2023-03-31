@@ -1,6 +1,9 @@
 {
   "name": "ng-getform",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "files": [
+    "lib/*"
+  ],
   "license": "ISC",
   "repository": {
     "url": "https://github.com/Halo-Lab/angular-getform.git",

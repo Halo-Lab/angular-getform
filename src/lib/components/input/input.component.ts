@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, HostBinding } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -8,15 +8,17 @@ import { FormControl } from '@angular/forms';
 })
 export class InputComponent implements OnInit {
   @Input() inputId = '';
-  @Input() control: FormControl<any> = new FormControl();
+  @Input() control: FormControl = new FormControl();
   @Input() label?: string = '';
   @Input() placeholder?: string = '';
   @Input() type = 'text';
-  @Input() isSubmitted = false;
   @Input() multiRows = false;
   @Input() errorMessages: any;
+  @Input() validate: boolean = false;
 
-  constructor() {}
+  @HostBinding('attr.class') @Input() className?: string = '';
 
-  ngOnInit() {}
+  constructor() { }
+
+  ngOnInit(): void { }
 }

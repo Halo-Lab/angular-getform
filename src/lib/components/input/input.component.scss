@@ -1,42 +1,45 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&display=swap");
+@font-face {
+  font-family: MacPaw Fixel;
+  src: url(../../assets/fonts/MacPawFixel-Regular.otf);
+  font-display: swap;
+}
 
 .formGroup {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  width: 368px;
+  width: 100%;
 
   label {
-    font-family: "Lora", serif;
+    font-family: "MacPaw Fixel", serif;
     font-weight: 500;
     font-size: 14px;
     line-height: 140%;
     color: #060811;
 
-    &:hover {
-      & + div > input {
-        border: 1px solid transparent;
+    &+div>input {
+      border: 1px solid #d5dcda;
+      border-radius: 14px;
+      transition: border-color .15s ease-in;
 
-        &:hover {
-          border: 1px solid #d5dcda;
-
-          &.isInvalid {
-            border-color: #f27c74;
-          }
-        }
-
-        &:focus {
-          border: 1px solid #060811;
-          border-radius: 14px;
-
-          &.isInvalid {
-            border-color: #f27c74;
-          }
-        }
+      &:hover {
+        border: 1px solid #a2a6a5;
 
         &.isInvalid {
           border-color: #f27c74;
         }
+      }
+
+      &:focus {
+        border: 1px solid #060811;
+
+        &.isInvalid {
+          border-color: #f27c74;
+        }
+      }
+
+      &.isInvalid {
+        border-color: #f27c74;
       }
     }
   }
@@ -54,7 +57,7 @@
       border-radius: 14px;
       outline: none;
       border: 1px solid transparent;
-      font-family: "Lora", serif;
+      font-family: "MacPaw Fixel", serif;
       font-weight: 400;
       font-size: 16px;
       line-height: 150%;
@@ -97,13 +100,10 @@
       resize: none;
     }
 
-    .dangerIconWrapper {
-      width: 24px;
-      height: 24px;
+    lib-unvalid-icon {
       position: absolute;
       right: 16px;
       top: 14px;
-      cursor: pointer;
     }
   }
 }

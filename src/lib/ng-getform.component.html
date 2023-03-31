@@ -1,18 +1,48 @@
-<div class="container">
-  <form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <div *ngFor="let item of fields">
-      <lib-input
-        [inputId]="item.name"
-        [placeholder]="item.placeholder ? item.placeholder : item.label"
-        [label]="item.label"
-        [type]="item.type || 'text'"
-        [isSubmitted]="isFormSubmitted"
-        [multiRows]="item.isMultiLine || false"
-        [isSubmitted]="isFormSubmitted"
-        [control]="form.controls[item.name]"
-        [errorMessages]="errorMessages[item.name]"
-      ></lib-input>
-    </div>
-    <lib-button [btnLabel]="btnLabel" [disabled]="isLoading"></lib-button>
-  </form>
-</div>
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <ng-container *ngFor="let item of fields">
+    <lib-input
+      *ngIf="item.type === 'text'"
+      [inputId]="item.name"
+      [placeholder]="item.placeholder ? item.placeholder : item.label"
+      [label]="item.label"
+      [type]="item.type || 'text'"
+      [validate]="isFormSubmitted"
+      [multiRows]="item.isMultiLine || false"
+      [validate]="isFormSubmitted"
+      [control]="form.controls[item.name]"
+      [errorMessages]="errorMessages[item.name]"
+    ></lib-input>
+    <lib-checkbox
+      *ngIf="item.type === 'checkbox'"
+      [name]="item.name"
+      [label]="item.label"
+      [control]="form.controls[item.name]"
+      [validate]="isFormSubmitted"
+      [errorMessages]="errorMessages[item.name]"
+    >
+    </lib-checkbox>
+    <lib-radio-group
+      *ngIf="item.type === 'radio'"
+      [name]="item.name"
+      [label]="item.label"
+      [items]="item.options"
+      [orientation]="item.orientation"
+      [control]="form.controls[item.name]"
+      [validate]="isFormSubmitted"
+      [errorMessages]="errorMessages[item.name]"
+    ></lib-radio-group>
+    <lib-select
+      *ngIf="item.type === 'select'"
+      [question]="item.question"
+      [options]="item.options"
+      [control]="form.controls[item.name]"
+      [validate]="isFormSubmitted"
+      [errorMessages]="errorMessages[item.name]"
+    ></lib-select>
+  </ng-container>
+  <lib-button
+    [btnType]="'filled wide'"
+    [btnLabel]="btnLabel"
+    [disabled]="isLoading"
+  ></lib-button>
+</form>
