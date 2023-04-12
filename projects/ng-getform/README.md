@@ -174,7 +174,7 @@ radioButtonsArray: { name: string, value: string }[] =
 
 ## Select accepts parameters
 
-- required `question : string` question before select component;
+- required `placeholder : string` placeholder before select component;
 - required `options : string[]` array of options;
 - required `control : FormControl` variable to control select value (new FormControl(yourValue : string)).Input validations implemented by native Angular [Validators](https://angular.io/api/forms/Validators);
 - optional `validate : boolean`  variable that trigger validation, when equal to true you can see danger icon inside your component;
@@ -189,7 +189,7 @@ in your .html file
 
 ```sh
   <lib-select
-    [question]="'Choose your favourite fruit'"
+    [placeholder]="'Choose your favourite fruit'"
     [options]="fruitsArr"
     [control]="favouriteFruit"
     [searchEnabled]="false"
@@ -310,7 +310,7 @@ fruitsArr: string[] = ['Banana',
     },
      {
       type: 'select',
-      question: 'Choose your favourite fruit',
+      placeholder: 'Choose your favourite fruit',
       name: 'fruit',
       options: ['Banana',
         'Mango',

@@ -7,7 +7,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./select.component.scss']
 })
 export class SelectComponent implements OnInit {
-  @Input() question!: string;
+  @Input() placeholder!: string;
   @Input() searchEnabled?: boolean = true;
   @Input() options: string[] = [];
   @Input() control: FormControl = new FormControl();

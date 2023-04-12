@@ -34,7 +34,7 @@
     ></lib-radio-group>
     <lib-select
       *ngIf="item.type === 'select'"
-      [question]="item.question"
+      [placeholder]="item.placeholder"
       [options]="item.options"
       [control]="form.controls[item.name]"
       [validate]="isFormSubmitted"

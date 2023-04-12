@@ -1,6 +1,6 @@
 <div class="select-title">
-  <p>
-    {{ question }}
+  <p *ngIf="!!placeholder">
+    {{ placeholder }}
   </p>
   <lib-unvalid-icon
     *ngIf="validate && control?.errors"

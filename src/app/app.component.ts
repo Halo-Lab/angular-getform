@@ -119,7 +119,7 @@ export class AppComponent {
     },
     {
       type: 'select',
-      question: 'Choose your favourite fruit',
+      placeholder: 'Choose your favourite fruit',
       name: 'fruit',
       options: ['Banana',
         'Mango',

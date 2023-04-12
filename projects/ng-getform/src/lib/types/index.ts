@@ -23,7 +23,7 @@ export type SelectProps = {
     type: string,
     name: string,
     options: string[],
-    question?: string,
+    placeholder?: string,
     selectTitle?: string,
     searchEnabled?: boolean,
     validation?: TValidationItem[];

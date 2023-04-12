@@ -24,7 +24,7 @@
       [errorMessages]="{ required: 'Please select' }"
     ></lib-radio-group>
     <lib-select
-      [question]="'Choose your favourite fruit'"
+      [placeholder]="'Choose your favourite fruit'"
       [options]="fruitsArr"
       [control]="favouriteFruit"
       [searchEnabled]="false"
@@ -71,7 +71,7 @@
   ></lib-radio-group>
   Radio Selected Item : {{ selectedRadioItem.value }}
   <lib-select
-    [question]="'Choose your favourite fruit'"
+    [placeholder]="'Choose your favourite fruit'"
     [options]="fruitsArr"
     [control]="favouriteFruit"
     [searchEnabled]="false"
