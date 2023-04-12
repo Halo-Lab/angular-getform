@@ -1,5 +1,6 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="form">
-  <ng-container *ngFor="let item of fields">
+  <ng-content></ng-content>
+  <!-- <ng-container *ngFor="let item of fields">
     <lib-input
       *ngIf="item.type === 'text'"
       [inputId]="item.name"
@@ -44,5 +45,5 @@
     [btnType]="'filled wide'"
     [btnLabel]="btnLabel"
     [disabled]="isLoading"
-  ></lib-button>
+  ></lib-button> -->
 </form>

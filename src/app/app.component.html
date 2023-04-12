@@ -1,13 +1,51 @@
 <div>
-  <h3>Inside ng-getform</h3>
+  <h3>ng-getform</h3>
   <lib-ng-getform
     [targetUrl]="'https://getform.io/f/9d2f3436-7fc1-461c-a6a8-053f371b7347'"
-    [fields]="fieldList"
-    [btnLabel]="'Send form data'"
-    [successCallback]="callback"
-  ></lib-ng-getform>
+  >
+    <lib-input
+      [label]="'Write your text'"
+      [control]="inputControl"
+      [inputId]="'uniqueID'"
+      [placeholder]="'Please write something'"
+      [validate]="validate"
+      [errorMessages]="{
+        required: 'Required field',
+        minLength: 'At least 2 chracters',
+        pattern: 'Only letters'
+      }"
+    ></lib-input>
+    <lib-radio-group
+      [items]="radioButtonsArray"
+      [orientation]="'horizontal'"
+      [label]="'Choose one option'"
+      [control]="selectedRadioItem"
+      [validate]="validate"
+      [errorMessages]="{ required: 'Please select' }"
+    ></lib-radio-group>
+    <lib-select
+      [question]="'Choose your favourite fruit'"
+      [options]="fruitsArr"
+      [control]="favouriteFruit"
+      [searchEnabled]="false"
+      [validate]="validate"
+      [errorMessages]="{ required: 'Select one fruit!' }"
+    ></lib-select>
+    <lib-checkbox
+      [name]="'confirmation'"
+      [label]="'Are you sure about that?'"
+      [control]="confirmationState"
+      [validate]="validate"
+      [errorMessages]="{ required: 'Must be checked' }"
+    ></lib-checkbox>
+    <lib-button
+      [btnLabel]="'Validate inputs'"
+      [btnType]="'wide filled'"
+      (click)="validateInputs()"
+    ></lib-button>
+  </lib-ng-getform>
 </div>
-
+<!-- 
 <div>
   <h3>Separate components</h3>
   <lib-input
@@ -54,4 +92,4 @@
     [btnType]="'wide stroke'"
     (click)="validateInputs()"
   ></lib-button>
-</div>
+</div> -->
