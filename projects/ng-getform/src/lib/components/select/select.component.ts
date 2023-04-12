@@ -8,7 +8,6 @@ import { FormControl } from '@angular/forms';
 })
 export class SelectComponent implements OnInit {
   @Input() question!: string;
-  @Input() selectTitle!: string | number;
   @Input() searchEnabled?: boolean = true;
   @Input() options: string[] = [];
   @Input() control: FormControl = new FormControl();
@@ -28,7 +27,7 @@ export class SelectComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.selectTitle = 'Default title';
+    this.control.setValue('Default option ...');
     this.filteredOptions = [...this.options];
   }
 
@@ -42,7 +41,6 @@ export class SelectComponent implements OnInit {
   }
 
   changeValue(value: string | number) {
-    this.selectTitle = value;
     this.control?.setValue(value)
   }
 

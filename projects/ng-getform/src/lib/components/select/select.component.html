@@ -17,7 +17,7 @@
   ]"
   (click)="toggleDropdown()"
 >
-  <p *ngIf="!!selectTitle">{{ selectTitle }}</p>
+  <p *ngIf="!!control.value">{{ control.value }}</p>
   <svg
     width="12"
     height="6"
@@ -64,7 +64,7 @@
       <li
         *ngFor="let option of filteredOptions"
         (click)="changeValue(option)"
-        [ngClass]="selectTitle === option ? 'choosen' : ''"
+        [ngClass]="control.value === option ? 'choosen' : ''"
       >
         {{ option }}
       </li>
