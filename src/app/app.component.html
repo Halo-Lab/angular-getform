@@ -2,10 +2,12 @@
   <h3>ng-getform</h3>
   <lib-ng-getform
     [targetUrl]="'https://getform.io/f/9d2f3436-7fc1-461c-a6a8-053f371b7347'"
+    [formGroup]="formGroup"
+    [successCallback]="callback"
   >
     <lib-input
       [label]="'Name'"
-      [control]="nameInputControl"
+      [control]="formGroup.get('name')"
       [inputId]="'name'"
       [placeholder]="'Please write your name'"
       [validate]="validate"
@@ -17,7 +19,7 @@
     ></lib-input>
     <lib-input
       [label]="'E-mail'"
-      [control]="emailInputControl"
+      [control]="formGroup.get('email')"
       [inputId]="'email'"
       [placeholder]="'Please write your email'"
       [validate]="validate"
@@ -30,14 +32,14 @@
       [items]="radioButtonsArray"
       [orientation]="'horizontal'"
       [label]="'Choose one option'"
-      [control]="radioItemControl"
+      [control]="formGroup.get('selectedRadioItem')"
       [validate]="validate"
       [errorMessages]="{ required: 'Please select' }"
     ></lib-radio-group>
     <lib-select
       [placeholder]="'Choose your favourite fruit'"
       [options]="fruitsArr"
-      [control]="favouriteFruitControl"
+      [control]="formGroup.get('favouriteFruit')"
       [searchEnabled]="false"
       [validate]="validate"
       [errorMessages]="{ required: 'Select one fruit!' }"
@@ -45,7 +47,7 @@
     <lib-checkbox
       [name]="'confirmation'"
       [label]="'Are you sure about that?'"
-      [control]="confirmationControl"
+      [control]="formGroup.get('confirmation')"
       [validate]="validate"
       [errorMessages]="{ required: 'Must be checked' }"
     ></lib-checkbox>

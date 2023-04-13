@@ -16,7 +16,8 @@ export class SelectComponent implements OnInit {
 
   isActive: boolean = false;
   searchString = new FormControl('');
-  filteredOptions: string[] = []
+  filteredOptions: string[] = [];
+  defaultTitle: string = 'Default title ...'
 
   @HostBinding('attr.class') @Input() className?: string = '';
   @HostListener('window:click', ['$event.target'])
@@ -27,7 +28,6 @@ export class SelectComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.control.setValue('Default option ...');
     this.filteredOptions = [...this.options];
   }
 

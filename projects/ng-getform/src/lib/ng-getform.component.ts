@@ -1,5 +1,5 @@
-import { Component, HostListener, HostBinding, Input, OnInit, AfterContentInit, ViewChild, ElementRef } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, HostListener, HostBinding, Input, OnInit, AfterContentInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { TooltipPosition } from './components/tooltip/tooltip.enums';
 // import { addValidators, getErrorMessages } from './helpers';
 
@@ -17,39 +17,41 @@ export class NgGetformComponent implements OnInit, AfterContentInit {
 
   isFormSubmitted = false;
   isLoading = false;
-  @ViewChild('formRef', { static: true }) formRef!: ElementRef;
-  // @ContentChildren(InputComponent) inputs!: QueryList<ElementRef>;
-  // @ContentChild(Checkbox) checkbox!: QueryList<ElementRef>;
 
-
-  // errorMessages: { [key: string]: any } = {};
   constructor() { }
 
-  ngOnInit() {
-    [...this.formRef.nativeElement.children].forEach((el: ElementRef) => console.log(el))
-    console.log(this.formRef.nativeElement.children, 'on init');
+  ngOnInit() { }
+
+  buttonClickHander() {
+    console.log('test 230')
   }
 
   ngAfterContentInit() {
-    // console.log(this.items, 'this.items')
-    // console.log(this.checkbox, 'checkbox ngAfterContentInit');
+
   }
 
   onSubmit() {
+    console.log(this.formGroup)
     this.isFormSubmitted = true;
+    // console.log(this.formGroup.value);
 
-    if (this.formGroup.invalid) return;
-
-    const formData = new FormData();
-
-    for (let value in this.formGroup.value) {
-      formData.append(value, this.formGroup.value[value]);
+    if (this.formGroup.invalid) {
+      console.log('unvalid')
+      return;
     }
+
+    // const formData = new FormData();
+
+    // for (let value in this.formGroup.value) {
+    //   console.log(value, this.formGroup.value[value])
+    //   formData.append(value, this.formGroup.value[value]);
+    // }
+    // console.log(formData)
 
     this.isLoading = true;
     fetch(this.targetUrl as string, {
       method: 'post',
-      body: formData,
+      body: this.formGroup.value,
       headers: {
         Accept: 'application/json',
       },

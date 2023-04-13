@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, forwardRef, HostBinding } from "@angular/core";
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators } from "@angular/forms";
 let integer: number = 1;
 
 @Component({
@@ -32,6 +32,7 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
   }
 
   ngOnInit() {
+    this.control.setValidators(Validators.requiredTrue);
     this.isChecked = this.control?.value;
   }
 
