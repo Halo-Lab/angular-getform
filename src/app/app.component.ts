@@ -7,18 +7,26 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  formGroup: FormGroup = new FormGroup({
-    name: new FormControl(null,
-      [Validators.required,
-      Validators.minLength(2),
-      Validators.pattern('[a-zA-Z]+')]),
-    email: new FormControl(null,
-      [Validators.required,
-      Validators.email]),
-    favouriteFruit: new FormControl(null, [Validators.required]),
-    selectedRadioItem: new FormControl(null, [Validators.required]),
-    confirmation: new FormControl(false, [Validators.requiredTrue])
-  })
+  nameInputControl: FormControl = new FormControl(null, [Validators.required,
+  Validators.minLength(2),
+  Validators.pattern('[a-zA-Z]+')]);
+  emailInputControl: FormControl = new FormControl(null, [Validators.required,
+  Validators.minLength(2)]);
+  favouriteFruitControl: FormControl = new FormControl(null, [Validators.required])
+  radioItemControl: FormControl = new FormControl(null, [Validators.required])
+  confirmationControl: FormControl = new FormControl(false, [Validators.requiredTrue])
+  // formGroup: FormGroup = new FormGroup({
+  //   name: new FormControl(null,
+  //     [Validators.required,
+  //     Validators.minLength(2),
+  //     Validators.pattern('[a-zA-Z]+')]),
+  //   email: new FormControl(null,
+  //     [Validators.required,
+  //     Validators.email]),
+  //   favouriteFruit: new FormControl(null, [Validators.required]),
+  //   selectedRadioItem: new FormControl(null, [Validators.required]),
+  //   confirmation: new FormControl(false, [Validators.requiredTrue])
+  // })
   callback() {
     console.log('hello from callback');
   }
@@ -26,13 +34,6 @@ export class AppComponent {
   validateInputs() {
     this.validate = !this.validate;
   }
-  inputControl: FormControl = new FormControl(null,
-    [Validators.required,
-    Validators.minLength(2),
-    Validators.pattern('[a-zA-Z]+')]);
-  favouriteFruit: FormControl = new FormControl(null, [Validators.required]);
-  selectedRadioItem: FormControl = new FormControl(null, [Validators.required]);
-  confirmationState = new FormControl(false, [Validators.requiredTrue]);
 
   fruitsArr: string[] = ['Banana',
     'Mango',

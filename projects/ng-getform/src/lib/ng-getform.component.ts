@@ -1,4 +1,4 @@
-import { Component, HostListener, Input, HostBinding, ContentChildren, OnInit, AfterContentInit, QueryList, ViewChild, ElementRef } from '@angular/core';
+import { Component, HostListener, HostBinding, Input, OnInit, AfterContentInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TooltipPosition } from './components/tooltip/tooltip.enums';
 // import { addValidators, getErrorMessages } from './helpers';
@@ -18,36 +18,21 @@ export class NgGetformComponent implements OnInit, AfterContentInit {
   isFormSubmitted = false;
   isLoading = false;
   @ViewChild('formRef', { static: true }) formRef!: ElementRef;
-  @ContentChildren('contentRef') items!: QueryList<ElementRef>;
+  // @ContentChildren(InputComponent) inputs!: QueryList<ElementRef>;
+  // @ContentChild(Checkbox) checkbox!: QueryList<ElementRef>;
+
 
   // errorMessages: { [key: string]: any } = {};
-
   constructor() { }
 
   ngOnInit() {
+    [...this.formRef.nativeElement.children].forEach((el: ElementRef) => console.log(el))
     console.log(this.formRef.nativeElement.children, 'on init');
-    // console.log(this.formGroup)
-    // this.fields.forEach((field: any) => {
-    //   if (field.validation) {
-    //     this.errorMessages[field.name] = {
-    //       ...getErrorMessages(field.validation),
-    //     };
-    //   }
-    //   this.form.addControl(field.name, new FormControl(null, !field.validation
-    //     ? []
-    //     : addValidators(field.validation)))
-    // })
   }
 
   ngAfterContentInit() {
-    // console.log(this.formRef.nativeElement.children, 'after content init');
-
-    [...this.formRef.nativeElement.children].forEach((el: ElementRef) => {
-      el.nativeElement.control = this.formGroup.controls['name']
-    })
-
-
-    // console.log(this.items)
+    // console.log(this.items, 'this.items')
+    // console.log(this.checkbox, 'checkbox ngAfterContentInit');
   }
 
   onSubmit() {

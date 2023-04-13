@@ -20,7 +20,5 @@ export class InputComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    console.log(this.control, 'from input')
-  }
+  ngOnInit(): void { }
 }
