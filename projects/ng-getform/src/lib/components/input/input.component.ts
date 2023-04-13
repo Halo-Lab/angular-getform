@@ -8,7 +8,7 @@ import { FormControl } from '@angular/forms';
 })
 export class InputComponent implements OnInit {
   @Input() inputId = '';
-  @Input() control: FormControl = new FormControl();
+  @Input() control!: FormControl;
   @Input() label?: string = '';
   @Input() placeholder?: string = '';
   @Input() type = 'text';
@@ -20,5 +20,7 @@ export class InputComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    console.log(this.control, 'from input')
+  }
 }

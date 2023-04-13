@@ -47,7 +47,7 @@ or
 ### Button accepts parameters
 
 - required `btnLabel : string` text inside button;
-- otional `btnType : string ('filled' or 'stroke')` type of button (also can be 'wide' ( width : 100%));
+- optional `btnType : string ('filled' or 'stroke')` type of button (also can be 'wide' ( width : 100%));
 - optional `className : string` class name for custom styling;
 
 You can add events directly on `<lib-button>` component.
