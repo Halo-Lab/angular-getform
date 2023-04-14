@@ -1,5 +1,5 @@
-import { Component, HostListener, HostBinding, Input, OnInit, AfterContentInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, HostListener, HostBinding, Input, OnInit } from '@angular/core';
+import { FormGroup, Validators } from '@angular/forms';
 import { TooltipPosition } from './components/tooltip/tooltip.enums';
 // import { addValidators, getErrorMessages } from './helpers';
 
@@ -8,7 +8,7 @@ import { TooltipPosition } from './components/tooltip/tooltip.enums';
   templateUrl: './ng-getform.component.html',
   styleUrls: ['./ng-getform.component.scss'],
 })
-export class NgGetformComponent implements OnInit, AfterContentInit {
+export class NgGetformComponent implements OnInit {
   @Input() targetUrl: string = '';
   @Input() successCallback?: () => void;
   @Input() formGroup: FormGroup = new FormGroup({});
@@ -20,18 +20,39 @@ export class NgGetformComponent implements OnInit, AfterContentInit {
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log(this.formGroup.controls)
+    this.resetFormErrors()
+    // Object.keys(this.formGroup.controls).forEach((key) => {
+    //   this.formGroup.get(key)?.updateValueAndValidity()
+    // console.log(this.formGroup.get(key)?.errors, 'errors')
+    // this.formGroup.get(key)?.updateValueAndValidity()
+    // });
+
+    // Object.keys(this.formGroup.controls).forEach((key) => {
+    // console.log(this.formGroup.get(key)?.errors, 'errors');
+    //   this.formGroup.get(key)?.setErrors(null)
+    //   this.formGroup.get(key)?.updateValueAndValidity()
+    // });
+  }
+
 
   buttonClickHander() {
     console.log('test 230')
   }
 
-  ngAfterContentInit() {
-
+  resetFormErrors() {
+    Object.keys(this.formGroup.controls).forEach((key) => {
+      this.formGroup.get(key)?.setErrors(null);
+      // this.formGroup.get(key)?.updateValueAndValidity()
+      console.log(this.formGroup.get(key)?.errors, 'errors')
+    });
   }
 
   onSubmit() {
     console.log(this.formGroup)
+    this.resetFormErrors()
+
     this.isFormSubmitted = true;
     // console.log(this.formGroup.value);
 

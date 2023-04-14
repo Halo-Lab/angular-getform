@@ -22,11 +22,11 @@ export class AppComponent {
     'Orange'
   ];
   formGroup: FormGroup = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
-    favouriteFruit: new FormControl(),
-    selectedRadioItem: new FormControl(),
-    confirmation: new FormControl(false)
+    name: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
+    favouriteFruit: new FormControl(null, Validators.required),
+    selectedRadioItem: new FormControl(null, Validators.required),
+    confirmation: new FormControl(false, Validators.requiredTrue)
   })
   callback() {
     console.log('hello from callback');
