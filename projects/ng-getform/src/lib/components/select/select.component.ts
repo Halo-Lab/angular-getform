@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, HostListener, HostBinding } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ValidationType } from '../../types';
+import { getErrorMessages } from '../../helpers';
 
 @Component({
   selector: 'lib-select',
@@ -12,13 +13,13 @@ export class SelectComponent implements OnInit {
   @Input() searchEnabled?: boolean = true;
   @Input() options: string[] = [];
   @Input() control: FormControl = new FormControl();
-  @Input() errorMessages: any;
   @Input() validator?: ValidationType[];
 
   isActive: boolean = false;
   searchString = new FormControl('');
   filteredOptions: string[] = [];
   defaultTitle: string = 'Default title ...'
+  errorMessage!: {};
 
   @HostBinding('attr.class') @Input() className?: string = '';
   @HostListener('window:click', ['$event.target'])
@@ -30,7 +31,9 @@ export class SelectComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.validator) {
-      console.log(this.validator)
+      this.errorMessage = getErrorMessages(this.validator)
+      console.log(this.errorMessage)
+      // this.control.setValidators(Validators.requiredTrue);
     }
     this.filteredOptions = [...this.options];
   }

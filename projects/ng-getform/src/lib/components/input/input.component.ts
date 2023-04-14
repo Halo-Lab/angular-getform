@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, HostBinding } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ValidationType } from '../../types';
+import { getErrorMessages } from '../../helpers';
 
 @Component({
   selector: 'lib-input',
@@ -14,16 +15,18 @@ export class InputComponent implements OnInit {
   @Input() placeholder?: string = '';
   @Input() type = 'text';
   @Input() multiRows = false;
-  @Input() errorMessages: any;
   @Input() validator?: ValidationType[];
 
   @HostBinding('attr.class') @Input() className?: string = '';
+  errorMessage!: {};
 
   constructor() { }
 
   ngOnInit(): void {
     if (this.validator) {
-      console.log(this.validator)
+      this.errorMessage = getErrorMessages(this.validator)
+      console.log(this.errorMessage)
+      // this.control.setValidators(Validators.requiredTrue);
     }
   }
 }
