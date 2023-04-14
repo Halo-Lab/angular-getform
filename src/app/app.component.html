@@ -48,8 +48,7 @@
       [name]="'confirmation'"
       [label]="'Are you sure about that?'"
       [control]="formGroup.get('confirmation')"
-      [validate]="validate"
-      [errorMessages]="{ required: 'Must be checked' }"
+      [validator]="{ type: 'requiredTrue', message: 'Must be checked' }"
     ></lib-checkbox>
   </lib-ng-getform>
 </div>

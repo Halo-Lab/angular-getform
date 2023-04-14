@@ -1,7 +1,7 @@
-import { FormControl, Validators } from "@angular/forms";
-import { TValidationItem } from "./types";
+import { Validators } from "@angular/forms";
+import { ValidationType } from "./types";
 
-export const getErrorMessages = (validation: TValidationItem[]) => {
+export const getErrorMessages = (validation: ValidationType[]) => {
   const res: any = {};
   validation.forEach((item) => {
     if (item.type === 'required' || item.type === 'requiredTrue') res.required = item.errorMessage;
@@ -15,9 +15,9 @@ export const getErrorMessages = (validation: TValidationItem[]) => {
   return res;
 };
 
-export const addValidators = (validation: TValidationItem[]) => {
+export const addValidators = (validation: ValidationType[]) => {
 
-  const result = validation.reduce((acc: any, current: TValidationItem) => {
+  const result = validation.reduce((acc: any, current: ValidationType) => {
     switch (current.type) {
       case 'requiredTrue':
         return [...acc, Validators.requiredTrue]

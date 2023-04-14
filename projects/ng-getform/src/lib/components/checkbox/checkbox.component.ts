@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, forwardRef, HostBinding } from "@angular/core";
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators } from "@angular/forms";
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { getErrorMessages } from "../../helpers";
+import { ValidationType } from "../../types";
+
 let integer: number = 1;
 
 @Component({
@@ -20,7 +23,7 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
   @Input() label: string = '';
   @Input() control: FormControl = new FormControl();
   @Input() errorMessages: any;
-  @Input() validate: boolean = false;
+  @Input() validator!: ValidationType[];
   @HostBinding('attr.class') @Input() className?: string = '';
 
   id: string = ''
@@ -32,7 +35,10 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
   }
 
   ngOnInit() {
-    this.control.setValidators(Validators.requiredTrue);
+    if (this.validator) {
+      this.errorMessages = getErrorMessages(this.validator)
+      // this.control.setValidators(Validators.requiredTrue);
+    }
     this.isChecked = this.control?.value;
   }
 
