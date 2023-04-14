@@ -3,7 +3,7 @@
   <div class="fieldContainer">
     <input
       *ngIf="!multiRows"
-      [ngClass]="{ isInvalid: validate && control.errors }"
+      [ngClass]="{ isInvalid: control.errors }"
       [type]="type"
       [placeholder]="placeholder || label"
       [id]="inputId"
@@ -12,14 +12,14 @@
     />
     <textarea
       *ngIf="multiRows"
-      [ngClass]="{ isInvalid: validate && control.errors }"
+      [ngClass]="{ isInvalid: control.errors }"
       [name]="inputId"
       [id]="inputId"
       [placeholder]="placeholder || label"
       [formControl]="control"
     ></textarea>
     <lib-unvalid-icon
-      *ngIf="validate && control.errors"
+      *ngIf="control.errors"
       [errors]="control.errors"
       [errorMessages]="errorMessages"
     ></lib-unvalid-icon>

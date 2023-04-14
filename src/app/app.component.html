@@ -10,45 +10,42 @@
       [control]="formGroup.get('name')"
       [inputId]="'name'"
       [placeholder]="'Please write your name'"
-      [validate]="validate"
-      [errorMessages]="{
-        required: 'Required field',
-        minLength: 'At least 2 chracters',
-        pattern: 'Only letters'
-      }"
+      [validator]="[
+        { type: 'required', message: 'Required field' },
+        { type: 'pattern', message: 'Only letters' }
+      ]"
     ></lib-input>
     <lib-input
       [label]="'E-mail'"
       [control]="formGroup.get('email')"
       [inputId]="'email'"
       [placeholder]="'Please write your email'"
-      [validate]="validate"
-      [errorMessages]="{
-        required: 'Required field',
-        email: 'Uncorrect email'
-      }"
+      [validator]="[
+        { type: 'required', message: 'Required field' },
+        { type: 'email', message: 'Unvalid e-mail' }
+      ]"
     ></lib-input>
     <lib-radio-group
       [items]="radioButtonsArray"
       [orientation]="'horizontal'"
       [label]="'Choose one option'"
       [control]="formGroup.get('selectedRadioItem')"
-      [validate]="validate"
-      [errorMessages]="{ required: 'Please select' }"
+      [validator]="[
+        { type: 'required', message: 'You need to select option!' }
+      ]"
     ></lib-radio-group>
     <lib-select
       [placeholder]="'Choose your favourite fruit'"
       [options]="fruitsArr"
       [control]="formGroup.get('favouriteFruit')"
       [searchEnabled]="false"
-      [validate]="validate"
-      [errorMessages]="{ required: 'Select one fruit!' }"
+      [validator]="[{ type: 'required', message: 'Select one fruit!' }]"
     ></lib-select>
     <lib-checkbox
       [name]="'confirmation'"
       [label]="'Are you sure about that?'"
       [control]="formGroup.get('confirmation')"
-      [validator]="{ type: 'requiredTrue', message: 'Must be checked' }"
+      [validator]="[{ type: 'requiredTrue', message: 'Must be checked' }]"
     ></lib-checkbox>
   </lib-ng-getform>
 </div>

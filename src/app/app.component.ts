@@ -14,17 +14,18 @@ export class AppComponent {
   // Validators.minLength(2)]);
   // favouriteFruitControl: FormControl = new FormControl(null, [Validators.required])
   // radioItemControl: FormControl = new FormControl(null, [Validators.required])
-  // confirmationControl: FormControl = new FormControl(false, [Validators.requiredTrue])
+  // confirmationControl: FormControl = new FormControl(false, [Validators.requiredTrue]);
+  fruitsArr: string[] = ['Banana',
+    'Mango',
+    'Pear',
+    'Apple',
+    'Orange'
+  ];
   formGroup: FormGroup = new FormGroup({
-    name: new FormControl(null,
-      [Validators.required,
-      Validators.minLength(2),
-      Validators.pattern('[a-zA-Z]+')]),
-    email: new FormControl(null,
-      [Validators.required,
-      Validators.email]),
-    favouriteFruit: new FormControl(null, [Validators.required]),
-    selectedRadioItem: new FormControl(null),
+    name: new FormControl(''),
+    email: new FormControl(''),
+    favouriteFruit: new FormControl(this.fruitsArr[0]),
+    selectedRadioItem: new FormControl(),
     confirmation: new FormControl(false)
   })
   callback() {
@@ -32,12 +33,6 @@ export class AppComponent {
   }
   validate: boolean = false;
 
-  fruitsArr: string[] = ['Banana',
-    'Mango',
-    'Pear',
-    'Apple',
-    'Orange'
-  ];
   radioButtonsArray: { name: string, value: string }[] =
     [{ name: 'radio 1', value: 'radio-1' },
     { name: 'radio 2', value: 'radio-2' },

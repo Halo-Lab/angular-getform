@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, HostBinding } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { ValidationType } from '../../types';
 
 @Component({
   selector: 'lib-input',
@@ -14,11 +15,15 @@ export class InputComponent implements OnInit {
   @Input() type = 'text';
   @Input() multiRows = false;
   @Input() errorMessages: any;
-  @Input() validate: boolean = false;
+  @Input() validator?: ValidationType[];
 
   @HostBinding('attr.class') @Input() className?: string = '';
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    if (this.validator) {
+      console.log(this.validator)
+    }
+  }
 }
