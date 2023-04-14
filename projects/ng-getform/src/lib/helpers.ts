@@ -1,4 +1,4 @@
-import { Validators } from "@angular/forms";
+import { Validators, FormControl } from "@angular/forms";
 import { ValidationType } from "./types";
 
 export const getErrorMessages = (validation: ValidationType[]) => {
@@ -15,51 +15,37 @@ export const getErrorMessages = (validation: ValidationType[]) => {
   return res;
 };
 
-export const addValidators = (validation: ValidationType[]) => {
-
-  const result = validation.reduce((acc: any, current: ValidationType) => {
+export const addValidators = (control: FormControl, validation: ValidationType[]) => {
+  validation.forEach((current: ValidationType) => {
     switch (current.type) {
       case 'requiredTrue':
-        return [...acc, Validators.requiredTrue]
+        return control.addValidators(Validators.requiredTrue)
 
       case 'required':
-        return [...acc, Validators.required];
+        return control.addValidators(Validators.required);
 
       case 'minLength':
-        return [
-          ...acc,
-          Validators.minLength(Number(current.value)) || 2,
-        ];
+        return control.addValidators(Validators.minLength(Number(current.value)) || 2)
 
       case 'maxLength':
-        return [
-          ...acc,
-          Validators.maxLength(Number(current.value) || 10),
-        ];
+        return control.addValidators(Validators.maxLength(Number(current.value) || 10))
 
       case 'max':
-        return [
-          ...acc,
-          Validators.max(Number(current.value) || 100),
-        ];
+        return control.addValidators(Validators.max(Number(current.value) || 100))
 
       case 'min':
-        return [...acc, Validators.min(Number(current.value) || 0)];
+        return control.addValidators(Validators.min(Number(current.value) || 0))
 
       case 'email':
-        return [...acc, Validators.email];
+        return control.addValidators(Validators.email)
 
       case 'pattern':
-        return [
-          ...acc,
-          Validators.pattern(
-            String(current.value) || '[a-zA-Z" "]+'
-          ),
-        ];
+        return control.addValidators(Validators.pattern(
+          String(current.value) || '[a-zA-Z" "]+'
+        ))
 
       default:
-        return acc;
+        return null;
     }
-  }, [])
-  return result
+  })
 }
