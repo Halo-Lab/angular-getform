@@ -1,6 +1,6 @@
 export type ValidationType = {
     type: string;
-    errorMessage: string;
+    message: string;
     value?: string | number | boolean;
 };
 

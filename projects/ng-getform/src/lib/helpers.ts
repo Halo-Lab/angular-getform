@@ -4,13 +4,13 @@ import { ValidationType } from "./types";
 export const getErrorMessages = (validation: ValidationType[]) => {
   const res: any = {};
   validation.forEach((item) => {
-    if (item.type === 'required' || item.type === 'requiredTrue') res.required = item.errorMessage;
-    if (item.type === 'minLength') res.minLength = item.errorMessage;
-    if (item.type === 'min') res.min = item.errorMessage;
-    if (item.type === 'maxLength') res.maxLength = item.errorMessage;
-    if (item.type === 'max') res.max = item.errorMessage;
-    if (item.type === 'email') res.email = item.errorMessage;
-    if (item.type === 'pattern') res.pattern = item.errorMessage;
+    if (item.type === 'required' || item.type === 'requiredTrue') res.required = item.message;
+    if (item.type === 'minLength') res.minLength = item.message;
+    if (item.type === 'min') res.min = item.message;
+    if (item.type === 'maxLength') res.maxLength = item.message;
+    if (item.type === 'max') res.max = item.message;
+    if (item.type === 'email') res.email = item.message;
+    if (item.type === 'pattern') res.pattern = item.message;
   });
   return res;
 };

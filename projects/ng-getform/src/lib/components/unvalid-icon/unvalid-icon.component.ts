@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./unvalid-icon.component.scss']
 })
 export class UnvalidIconComponent {
-  @Input() errorMessages!: any;
+  @Input() errorMessage!: any;
   @Input() errors!: any;
 }

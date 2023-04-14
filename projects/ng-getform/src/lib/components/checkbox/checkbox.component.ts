@@ -22,12 +22,12 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
   @Input() name: string = '';
   @Input() label: string = '';
   @Input() control: FormControl = new FormControl();
-  @Input() errorMessages: any;
   @Input() validator!: ValidationType[];
   @HostBinding('attr.class') @Input() className?: string = '';
 
   id: string = ''
   isChecked!: boolean;
+  errorMessage!: {};
 
   constructor() {
     this.id = `checkbox-${integer}`
@@ -36,7 +36,8 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
 
   ngOnInit() {
     if (this.validator) {
-      this.errorMessages = getErrorMessages(this.validator)
+      this.errorMessage = getErrorMessages(this.validator)
+      console.log(this.errorMessage)
       // this.control.setValidators(Validators.requiredTrue);
     }
     this.isChecked = this.control?.value;
