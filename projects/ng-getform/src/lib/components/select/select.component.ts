@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, HostListener, HostBinding } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ValidationType } from '../../types';
-import { getErrorMessages } from '../../helpers';
+import { addValidators, getErrorMessages } from '../../helpers';
 
 @Component({
   selector: 'lib-select',
@@ -31,9 +31,8 @@ export class SelectComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.validator) {
+      addValidators(this.control, this.validator)
       this.errorMessage = getErrorMessages(this.validator)
-      console.log(this.errorMessage)
-      // this.control.setValidators(Validators.requiredTrue);
     }
     this.filteredOptions = [...this.options];
   }

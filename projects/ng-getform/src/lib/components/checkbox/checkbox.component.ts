@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, forwardRef, HostBinding } from "@angular/core";
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from "@angular/forms";
-import { getErrorMessages } from "../../helpers";
+import { addValidators, getErrorMessages } from "../../helpers";
 import { ValidationType } from "../../types";
 
 let integer: number = 1;
@@ -36,9 +36,8 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
 
   ngOnInit() {
     if (this.validator) {
-      this.errorMessage = getErrorMessages(this.validator)
-      console.log(this.errorMessage)
-      // this.control.setValidators(Validators.requiredTrue);
+      addValidators(this.control, this.validator);
+      this.errorMessage = getErrorMessages(this.validator);
     }
     this.isChecked = this.control?.value;
   }

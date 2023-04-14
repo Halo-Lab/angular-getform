@@ -19,7 +19,7 @@ export const addValidators = (control: FormControl, validation: ValidationType[]
   validation.forEach((current: ValidationType) => {
     switch (current.type) {
       case 'requiredTrue':
-        return control.addValidators(Validators.requiredTrue)
+        return control.setValidators(Validators.requiredTrue)
 
       case 'required':
         return control.addValidators(Validators.required);
@@ -48,4 +48,5 @@ export const addValidators = (control: FormControl, validation: ValidationType[]
         return null;
     }
   })
+  control.updateValueAndValidity()
 }

@@ -27,7 +27,7 @@
     ></lib-input>
     <lib-radio-group
       [items]="radioButtonsArray"
-      [orientation]="'horizontal'"
+      [orientation]="'vertical'"
       [label]="'Choose one option'"
       [control]="formGroup.get('selectedRadioItem')"
       [validator]="[
@@ -38,7 +38,7 @@
       [placeholder]="'Choose your favourite fruit'"
       [options]="fruitsArr"
       [control]="formGroup.get('favouriteFruit')"
-      [searchEnabled]="false"
+      [searchEnabled]="true"
       [validator]="[{ type: 'required', message: 'Select one fruit!' }]"
     ></lib-select>
     <lib-checkbox

@@ -24,7 +24,7 @@ export class AppComponent {
   formGroup: FormGroup = new FormGroup({
     name: new FormControl(''),
     email: new FormControl(''),
-    favouriteFruit: new FormControl(this.fruitsArr[0]),
+    favouriteFruit: new FormControl(),
     selectedRadioItem: new FormControl(),
     confirmation: new FormControl(false)
   })

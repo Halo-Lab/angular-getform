@@ -1,7 +1,7 @@
 import { Component, forwardRef, HostBinding, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ValidationType } from '../../types';
-import { getErrorMessages } from '../../helpers';
+import { addValidators, getErrorMessages } from '../../helpers';
 
 
 const RADIO_VALUE_ACCESSOR: any = {
@@ -24,9 +24,9 @@ export class RadioGroupComponent implements ControlValueAccessor, OnInit {
   @Input() orientation: string = 'vertical';
   @Input() control: FormControl = new FormControl();
   @Input() validator!: ValidationType[];
-  
+
   @HostBinding('attr.class') @Input() className?: string = '';
-  
+
   errorMessage!: any;
   innerValue!: string | number;
 
@@ -34,9 +34,8 @@ export class RadioGroupComponent implements ControlValueAccessor, OnInit {
 
   ngOnInit() {
     if (this.validator) {
+      addValidators(this.control, this.validator)
       this.errorMessage = getErrorMessages(this.validator)
-      console.log(this.errorMessage)
-      // this.control.setValidators(Validators.requiredTrue);
     }
     this.innerValue = this.control.value;
   }
