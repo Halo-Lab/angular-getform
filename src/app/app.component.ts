@@ -23,7 +23,7 @@ export class AppComponent {
   ];
   formGroup: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
     favouriteFruit: new FormControl(null, Validators.required),
     selectedRadioItem: new FormControl(null, Validators.required),
     confirmation: new FormControl(false, Validators.requiredTrue)

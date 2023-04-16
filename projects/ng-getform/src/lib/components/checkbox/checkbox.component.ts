@@ -2,6 +2,8 @@ import { Component, OnInit, Input, forwardRef, HostBinding } from "@angular/core
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { addValidators, getErrorMessages } from "../../helpers";
 import { ValidationType } from "../../types";
+import { FormService } from "../../service/form.service";
+import { Subscription } from "rxjs";
 
 let integer: number = 1;
 
@@ -28,10 +30,13 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
   id: string = ''
   isChecked!: boolean;
   errorMessage!: {};
+  validate: boolean = false;
+  // validateSub: Subscription = new Subscription();
 
-  constructor() {
+  constructor(private formService: FormService) {
     this.id = `checkbox-${integer}`
     integer++
+    this.formService.validate.subscribe((val) => this.validate = val);
   }
 
   ngOnInit() {

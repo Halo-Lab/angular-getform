@@ -1,6 +1,7 @@
 import { Component, HostListener, HostBinding, Input, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { TooltipPosition } from './components/tooltip/tooltip.enums';
+import { FormService } from './service/form.service';
 // import { addValidators, getErrorMessages } from './helpers';
 
 @Component({
@@ -18,7 +19,7 @@ export class NgGetformComponent implements OnInit {
   isFormSubmitted = false;
   isLoading = false;
 
-  constructor() { }
+  constructor(private formService: FormService) { }
 
   ngOnInit() {
     console.log(this.formGroup.controls)
@@ -51,10 +52,8 @@ export class NgGetformComponent implements OnInit {
 
   onSubmit() {
     console.log(this.formGroup)
-    this.resetFormErrors()
-
-    this.isFormSubmitted = true;
-    // console.log(this.formGroup.value);
+    // this.resetFormErrors()
+    this.formService.endableFormValidation();
 
     if (this.formGroup.invalid) {
       console.log('unvalid')
@@ -82,6 +81,7 @@ export class NgGetformComponent implements OnInit {
         Object.keys(this.formGroup.controls).forEach((key) => {
           this.formGroup.get(key)?.setErrors(null);
         });
+        this.formService.disableFormValidation();
         if (typeof this.successCallback === 'function') this.successCallback();
       })
       .catch((err) => console.log({ err }))

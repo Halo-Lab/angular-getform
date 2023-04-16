@@ -3,7 +3,7 @@
     {{ placeholder }}
   </p>
   <lib-unvalid-icon
-    *ngIf="control?.errors"
+    *ngIf="validate && control?.errors"
     [errors]="control.errors"
     [errorMessage]="errorMessage"
   ></lib-unvalid-icon>
@@ -11,7 +11,10 @@
 
 <div
   class="select-wrapper"
-  [ngClass]="[isActive ? 'active' : 'hide', control.errors ? 'error' : '']"
+  [ngClass]="[
+    isActive ? 'active' : 'hide',
+    validate && control.errors ? 'error' : ''
+  ]"
   (click)="toggleDropdown()"
 >
   <p *ngIf="!control.value">{{ defaultTitle }}</p>

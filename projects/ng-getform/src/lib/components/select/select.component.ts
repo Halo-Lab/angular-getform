@@ -2,6 +2,7 @@ import { Component, OnInit, Input, HostListener, HostBinding } from '@angular/co
 import { FormControl } from '@angular/forms';
 import { ValidationType } from '../../types';
 import { addValidators, getErrorMessages } from '../../helpers';
+import { FormService } from '../../service/form.service';
 
 @Component({
   selector: 'lib-select',
@@ -20,6 +21,7 @@ export class SelectComponent implements OnInit {
   filteredOptions: string[] = [];
   defaultTitle: string = 'Default title ...'
   errorMessage!: {};
+  validate: boolean = false;
 
   @HostBinding('attr.class') @Input() className?: string = '';
   @HostListener('window:click', ['$event.target'])
@@ -27,7 +29,10 @@ export class SelectComponent implements OnInit {
     if (!event.classList.contains('select-wrapper')) this.isActive = false;
   }
 
-  constructor() { }
+  constructor(private formService: FormService) {
+    this.formService.validate.subscribe((val) => this.validate = val)
+  }
+
 
   ngOnInit(): void {
     if (this.validator) {

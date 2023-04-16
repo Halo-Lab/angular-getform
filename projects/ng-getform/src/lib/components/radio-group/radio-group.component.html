@@ -3,7 +3,7 @@
     {{ label }}
   </p>
   <lib-unvalid-icon
-    *ngIf="control?.errors"
+    *ngIf="validate && control?.errors"
     [errors]="control.errors"
     [errorMessage]="errorMessage"
   ></lib-unvalid-icon>

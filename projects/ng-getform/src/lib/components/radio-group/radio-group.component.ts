@@ -2,6 +2,7 @@ import { Component, forwardRef, HostBinding, Input, OnInit } from '@angular/core
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ValidationType } from '../../types';
 import { addValidators, getErrorMessages } from '../../helpers';
+import { FormService } from '../../service/form.service';
 
 
 const RADIO_VALUE_ACCESSOR: any = {
@@ -29,8 +30,11 @@ export class RadioGroupComponent implements ControlValueAccessor, OnInit {
 
   errorMessage!: any;
   innerValue!: string | number;
+  validate: boolean = false;
 
-  constructor() { }
+  constructor(private formService: FormService) {
+    this.formService.validate.subscribe((val) => this.validate = val)
+  }
 
   ngOnInit() {
     if (this.validator) {
