@@ -28,11 +28,8 @@ export class InputComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.validator) {
-      // addValidators(this.control, this.validator)
+      addValidators(this.control, this.validator)
       this.errorMessage = getErrorMessages(this.validator);
-      // this.control.setErrors(null);
-      // this.control.updateValueAndValidity();
-
     }
   }
 }

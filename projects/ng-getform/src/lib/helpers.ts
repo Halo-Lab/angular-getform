@@ -48,4 +48,5 @@ export const addValidators = (control: FormControl, validation: ValidationType[]
         return null;
     }
   })
+  control.updateValueAndValidity();
 }

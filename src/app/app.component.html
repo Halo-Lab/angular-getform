@@ -1,23 +1,23 @@
 <div>
-  <h3>ng-getform</h3>
   <lib-ng-getform
-    [targetUrl]="'https://getform.io/f/9d2f3436-7fc1-461c-a6a8-053f371b7347'"
+    [targetUrl]="'https://getform.io/f/3ca8cf55-2fdd-4b92-9e49-7fab38de681b'"
     [formGroup]="formGroup"
     [successCallback]="callback"
   >
     <lib-input
       [label]="'Name'"
-      [control]="formGroup.get('name')"
+      [control]="formGroup.controls['name']"
       [inputId]="'name'"
       [placeholder]="'Please write your name'"
       [validator]="[
         { type: 'required', message: 'Required field' },
-        { type: 'pattern', message: 'Only letters' }
+        { type: 'minLength', message: 'At least 2 characters', value: 2 },
+        { type: 'pattern', message: 'Only letters', value: '[a-zA-Z]+' }
       ]"
     ></lib-input>
     <lib-input
       [label]="'E-mail'"
-      [control]="formGroup.get('email')"
+      [control]="formGroup.controls['email']"
       [inputId]="'email'"
       [placeholder]="'Please write your email'"
       [validator]="[
@@ -26,10 +26,10 @@
       ]"
     ></lib-input>
     <lib-radio-group
-      [items]="radioButtonsArray"
+      [items]="sportsOptions"
       [orientation]="'vertical'"
-      [label]="'Choose one option'"
-      [control]="formGroup.get('selectedRadioItem')"
+      [label]="'Choose your favourite sport'"
+      [control]="formGroup.controls['sport']"
       [validator]="[
         { type: 'required', message: 'You need to select option!' }
       ]"
@@ -37,14 +37,14 @@
     <lib-select
       [placeholder]="'Choose your favourite fruit'"
       [options]="fruitsArr"
-      [control]="formGroup.get('favouriteFruit')"
+      [control]="formGroup.controls['fruit']"
       [searchEnabled]="true"
       [validator]="[{ type: 'required', message: 'Select one fruit!' }]"
     ></lib-select>
     <lib-checkbox
       [name]="'confirmation'"
       [label]="'Are you sure about that?'"
-      [control]="formGroup.get('confirmation')"
+      [control]="formGroup.controls['confirmation']"
       [validator]="[{ type: 'requiredTrue', message: 'Must be checked' }]"
     ></lib-checkbox>
   </lib-ng-getform>

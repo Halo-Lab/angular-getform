@@ -19,7 +19,7 @@ export class SelectComponent implements OnInit {
   isActive: boolean = false;
   searchString = new FormControl('');
   filteredOptions: string[] = [];
-  defaultTitle: string = 'Default title ...'
+  defaultTitle: string = 'Default title'
   errorMessage!: {};
   validate: boolean = false;
 
@@ -36,11 +36,8 @@ export class SelectComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.validator) {
-      // addValidators(this.control, this.validator)
+      addValidators(this.control, this.validator)
       this.errorMessage = getErrorMessages(this.validator);
-      // this.control.setErrors(null);
-      // this.control.updateValueAndValidity();
-
     }
     this.filteredOptions = [...this.options];
   }

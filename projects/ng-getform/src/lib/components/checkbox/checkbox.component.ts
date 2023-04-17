@@ -31,7 +31,6 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
   isChecked!: boolean;
   errorMessage!: {};
   validate: boolean = false;
-  // validateSub: Subscription = new Subscription();
 
   constructor(private formService: FormService) {
     this.id = `checkbox-${integer}`
@@ -41,9 +40,8 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
 
   ngOnInit() {
     if (this.validator) {
-      // addValidators(this.control, this.validator);
+      addValidators(this.control, this.validator);
       this.errorMessage = getErrorMessages(this.validator);
-      // this.control.updateValueAndValidity();
     }
     this.isChecked = this.control?.value;
   }

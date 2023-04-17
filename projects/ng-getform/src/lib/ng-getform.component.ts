@@ -1,8 +1,7 @@
 import { Component, HostListener, HostBinding, Input, OnInit } from '@angular/core';
-import { FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { TooltipPosition } from './components/tooltip/tooltip.enums';
 import { FormService } from './service/form.service';
-// import { addValidators, getErrorMessages } from './helpers';
 
 @Component({
   selector: 'lib-ng-getform',
@@ -16,71 +15,38 @@ export class NgGetformComponent implements OnInit {
 
   @HostBinding('attr.class') @Input() className?: string = '';
 
-  isFormSubmitted = false;
   isLoading = false;
 
   constructor(private formService: FormService) { }
 
-  ngOnInit() {
-    console.log(this.formGroup.controls)
-    this.resetFormErrors()
-    // Object.keys(this.formGroup.controls).forEach((key) => {
-    //   this.formGroup.get(key)?.updateValueAndValidity()
-    // console.log(this.formGroup.get(key)?.errors, 'errors')
-    // this.formGroup.get(key)?.updateValueAndValidity()
-    // });
+  ngOnInit() { }
 
-    // Object.keys(this.formGroup.controls).forEach((key) => {
-    // console.log(this.formGroup.get(key)?.errors, 'errors');
-    //   this.formGroup.get(key)?.setErrors(null)
-    //   this.formGroup.get(key)?.updateValueAndValidity()
-    // });
-  }
-
-
-  buttonClickHander() {
-    console.log('test 230')
-  }
-
-  resetFormErrors() {
+  resetForm() {
+    this.formGroup.reset();
     Object.keys(this.formGroup.controls).forEach((key) => {
       this.formGroup.get(key)?.setErrors(null);
-      // this.formGroup.get(key)?.updateValueAndValidity()
-      console.log(this.formGroup.get(key)?.errors, 'errors')
     });
   }
 
   onSubmit() {
-    console.log(this.formGroup)
-    // this.resetFormErrors()
     this.formService.endableFormValidation();
+    if (this.formGroup.invalid) return;
 
-    if (this.formGroup.invalid) {
-      console.log('unvalid')
-      return;
+    const formData: FormData = new FormData();
+    for (const value in this.formGroup.value) {
+      formData.append(value, this.formGroup.value[value]);
     }
-
-    // const formData = new FormData();
-
-    // for (let value in this.formGroup.value) {
-    //   console.log(value, this.formGroup.value[value])
-    //   formData.append(value, this.formGroup.value[value]);
-    // }
-    // console.log(formData)
 
     this.isLoading = true;
     fetch(this.targetUrl as string, {
       method: 'post',
-      body: this.formGroup.value,
+      body: formData,
       headers: {
         Accept: 'application/json',
       },
     })
       .then(() => {
-        this.formGroup.reset();
-        Object.keys(this.formGroup.controls).forEach((key) => {
-          this.formGroup.get(key)?.setErrors(null);
-        });
+        this.resetForm();
         this.formService.disableFormValidation();
         if (typeof this.successCallback === 'function') this.successCallback();
       })

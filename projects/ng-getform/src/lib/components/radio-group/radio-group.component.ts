@@ -38,11 +38,8 @@ export class RadioGroupComponent implements ControlValueAccessor, OnInit {
 
   ngOnInit() {
     if (this.validator) {
-      // addValidators(this.control, this.validator);
+      addValidators(this.control, this.validator);
       this.errorMessage = getErrorMessages(this.validator);
-      // this.control.setErrors(null);
-      // this.control.updateValueAndValidity();
-
     }
     this.innerValue = this.control.value;
   }
