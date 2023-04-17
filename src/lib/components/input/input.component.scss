@@ -1,0 +1,109 @@
+@font-face {
+  font-family: MacPaw Fixel;
+  src: url(../../assets/fonts/MacPawFixel-Regular.otf);
+  font-display: swap;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+
+  label {
+    font-family: "MacPaw Fixel", serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140%;
+    color: #060811;
+
+    &+div>input {
+      border: 1px solid #d5dcda;
+      border-radius: 14px;
+      transition: border-color .15s ease-in;
+
+      &:hover {
+        border: 1px solid #a2a6a5;
+
+        &.isInvalid {
+          border-color: #f27c74;
+        }
+      }
+
+      &:focus {
+        border: 1px solid #060811;
+
+        &.isInvalid {
+          border-color: #f27c74;
+        }
+      }
+
+      &.isInvalid {
+        border-color: #f27c74;
+      }
+    }
+  }
+
+  .fieldContainer {
+    width: 100%;
+    position: relative;
+
+    input,
+    textarea {
+      width: 100%;
+      height: 52px;
+      padding: 16px 14px;
+      background: #ffffff;
+      border-radius: 14px;
+      outline: none;
+      border: 1px solid transparent;
+      font-family: "MacPaw Fixel", serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: #060811;
+      box-sizing: border-box;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      &[type="number"] {
+        -moz-appearance: textfield;
+      }
+
+      &:hover {
+        border: 1px solid #d5dcda;
+      }
+
+      &:focus {
+        border: 1px solid #060811;
+        border-radius: 14px;
+      }
+
+      &:placeholder {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: #9b9ca0;
+      }
+
+      &.isInvalid {
+        border-color: #f27c74;
+      }
+    }
+
+    textarea {
+      height: 88px;
+      resize: none;
+    }
+
+    lib-unvalid-icon {
+      position: absolute;
+      right: 16px;
+      top: 14px;
+    }
+  }
+}

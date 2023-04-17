@@ -1,0 +1,55 @@
+@font-face {
+  font-family: MacPaw Fixel SemiBold;
+  src: url(../../assets/fonts/MacPawFixel-SemiBold.otf);
+  font-display: swap;
+}
+
+button {
+  padding: 14px 32px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-family: 'MacPaw Fixel SemiBold', serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  transition: .15s ease-in;
+  transition-property: color, background-color;
+
+  &.filled {
+    background-color: #2f55b7;
+
+    &:hover {
+      background-color: #23418e;
+    }
+
+    &:disabled {
+      background-color: #b9c4e0;
+      color: #ced6e9;
+      cursor: auto;
+    }
+  }
+
+  &.stroke {
+    border: 2px solid #060811;
+    background-color: transparent;
+    color: #060811;
+
+    &:hover {
+      color: #fff;
+      background-color: #060811;
+    }
+
+    &:disabled {
+      border-color: #B2BDD9;
+      color: #B2BDD9;
+    }
+  }
+
+  &.wide {
+    width: 100%;
+  }
+}
