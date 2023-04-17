@@ -29,7 +29,7 @@ You can add events listeners directly on `<lib-button>` component.
 ### Input accepts parameters
 
 - required `control : FormControl` variable to control input  value (new FormControl(yourValue : string)). Actually you can use all the methods that are avalilable with [FormControl](https://angular.io/api/forms/FormControl).
-- required `inputId` unique name of an input field;
+- require `inputId` unique name of an input field;
 - optional `label : string` the label of an input;
 - optional `placeholder : string` input placeholder (by default equal to `label`);
 - optional `validator : { type: string, message: string, value?: string | number }[]`  - the array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: for max, min, maxLength, minLength, pattern validators}. 
@@ -41,12 +41,12 @@ You can add events listeners directly on `<lib-button>` component.
     - `minLength`,
     - `max`,
     - `min`,
-    - `pattern`,
-    For example: `[
+    - `pattern`.
+  For example: `[
         { type: 'required', message: 'Required field' },
         { type: 'minLength', message: 'At least 2 characters', value: 2 },
-        { type: 'pattern', message: 'Only letters', value: '[a-zA-Z]+' }`.
-- optional `multiRows : boolean` if equal true, will be rendered '<textarea>', otherwise a '<input />';
+        { type: 'pattern', message: 'Only letters', value: '[a-zA-Z]+' }]`.
+- optional `multiRows : boolean` if equal true, will be rendered `<textarea>`, otherwise a `<input>`;
 - optional `type : string` input type (default 'text');
 - optional `className : string`  class name for custom styling.
 
@@ -67,8 +67,8 @@ You can add events listeners directly on `<lib-button>` component.
 - required `items : {name:string,value:string[]` the label of an radio group;
 - required `control : FormControl`  variable to control radio group value (new FormControl(yourValue : string | number));
 - optional `validator : { type: string, message: string, value?: string | number }[]` - the array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: for max, min, maxLength, minLength, pattern validators}. The validator's name may be:
-  - required.
-  For example: `[{name: "required", message: "You must select one option"}`].
+  - required. 
+  For example: `[{name: "required", message: "You must select one option"}]`.
 - optional `orientation? : (vertical | horizontal )` property that allow you to control buttons group orientation. Default value : vertical;
 - optional `className : string` class name for custom styling.
 
@@ -144,6 +144,7 @@ You can add events listeners directly on `<lib-button>` component.
 #### TS
 ```sh
 import { FormControl, FormGroup } from '@angular/forms';
+import { NgGetform, Input , Button, Checkbox, Select, RadioGroup } from '@halo-lab/ng-getform'
 
 formGroup: FormGroup = new FormGroup({
     name: new FormControl(''),
