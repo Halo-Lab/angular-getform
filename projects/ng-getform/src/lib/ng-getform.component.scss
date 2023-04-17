@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    flex-basis: 368px;
+    max-width: 368px;
   }
 
   lib-button {
