@@ -42,7 +42,7 @@ You can add events listeners directly on `<lib-button>` component.
     - `max`,
     - `min`,
     - `pattern`,
-    For example: `  [
+    For example: `[
         { type: 'required', message: 'Required field' },
         { type: 'minLength', message: 'At least 2 characters', value: 2 },
         { type: 'pattern', message: 'Only letters', value: '[a-zA-Z]+' }`.
@@ -57,7 +57,7 @@ You can add events listeners directly on `<lib-button>` component.
 - required `control : FormControl` variable to control checkbox value (new FormControl(yourValue : boolean)). Actually you can use all the methods that are avalilable with [FormControl](https://angular.io/api/forms/FormControl).
 - optional `validator : { type: string, message: string, value?: string | number }[]` - the array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: for max, min, maxLength, minLength, pattern validators}. The validator's name may be:
   - requiredTrue.
-  For example: [{name: "requiredTrue", message: "Please accept our terms"}.
+  For example: `[{name: "requiredTrue", message: "Please accept our terms"}]`.
 - optional `className : string` class name for custom styling.
 
 ## RadioGroup accepts parameters
@@ -68,7 +68,7 @@ You can add events listeners directly on `<lib-button>` component.
 - required `control : FormControl`  variable to control radio group value (new FormControl(yourValue : string | number));
 - optional `validator : { type: string, message: string, value?: string | number }[]` - the array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: for max, min, maxLength, minLength, pattern validators}. The validator's name may be:
   - required.
-  For example: [{name: "required", message: "You must select one option"}.
+  For example: `[{name: "required", message: "You must select one option"}`].
 - optional `orientation? : (vertical | horizontal )` property that allow you to control buttons group orientation. Default value : vertical;
 - optional `className : string` class name for custom styling.
 
@@ -79,7 +79,7 @@ You can add events listeners directly on `<lib-button>` component.
 - required `control : FormControl` variable to control select value (new FormControl(yourValue : string));
 - optional `validator : { type: string, message: string, value?: string | number }[]` - the array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: for max, min, maxLength, minLength, pattern validators}. The validator's name may be:
   - required.
-  For example: [{name: "required", message: "Please select your favourite fruit"}.
+  For example: `[{name: "required", message: "Please select your favourite fruit"}]`.
 - optional `searchEnabled : boolean` enable/disable search bar for select options;
 - optional `className : string` class name for custom styling.
 
