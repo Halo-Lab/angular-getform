@@ -1,3 +1,13 @@
+#### To start project loccaly you need to run :
+```sh
+ng serve
+```
+
+#### If you want to add some changes to ng-getfrom and see latest version you must run command :
+
+```sh
+ng build ng-getform --watch
+```
 # @halo-lab/ng-getform
 
 ### To install package
