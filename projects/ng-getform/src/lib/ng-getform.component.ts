@@ -1,6 +1,5 @@
-import { Component, HostListener, HostBinding, Input, OnInit } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { TooltipPosition } from './components/tooltip/tooltip.enums';
 import { FormService } from './service/form.service';
 
 @Component({
@@ -11,10 +10,9 @@ import { FormService } from './service/form.service';
 export class NgGetformComponent implements OnInit {
   @Input() targetUrl: string = '';
   @Input() successCallback?: () => void;
-  @Input() formGroup: FormGroup = new FormGroup({});
+  @Input() formGroup!: FormGroup;
 
   @HostBinding('attr.class') @Input() className?: string = '';
-
   isLoading = false;
 
   constructor(private formService: FormService) { }
@@ -54,18 +52,5 @@ export class NgGetformComponent implements OnInit {
       .finally(() => {
         this.isLoading = false;
       });
-  }
-
-
-  TooltipPosition: typeof TooltipPosition = TooltipPosition;
-  x = 0;
-  y = 0;
-  coordinates = '';
-
-  @HostListener('mousemove', ['$event'])
-  onMouseMove($event: MouseEvent): void {
-    this.x = $event.clientX;
-    this.y = $event.clientY;
-    this.coordinates = `${this.x},${this.y}`;
   }
 }
