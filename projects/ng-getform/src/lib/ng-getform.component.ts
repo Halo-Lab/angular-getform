@@ -23,6 +23,7 @@ export class NgGetformComponent implements OnInit {
     this.formGroup.reset();
     Object.keys(this.formGroup.controls).forEach((key) => {
       this.formGroup.get(key)?.setErrors(null);
+      this.formGroup.get(key)?.updateValueAndValidity()
     });
   }
 
