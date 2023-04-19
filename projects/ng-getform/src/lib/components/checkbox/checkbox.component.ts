@@ -3,7 +3,6 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from "@angular/f
 import { addValidators, getErrorMessages } from "../../helpers";
 import { ValidationType } from "../../types";
 import { FormService } from "../../service/form.service";
-import { Subscription } from "rxjs";
 
 let integer: number = 1;
 
@@ -63,8 +62,12 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
     this.onTouch = fn;
   }
 
-  toggleValue() {
-    this.isChecked = !this.isChecked;
-    this.onChange(this.isChecked);
+  toggleValue(e: boolean) {
+    this.isChecked = e;
+    this.onChange(e);
+  }
+
+  labelClickHandler() {
+    this.toggleValue(!this.isChecked)
   }
 }
