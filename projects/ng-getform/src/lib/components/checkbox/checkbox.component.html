@@ -4,7 +4,7 @@
     [name]="name"
     [id]="id"
     [formControl]="control"
-    (ngModelChange)="toggleValue($event)"
+    (click)="toggleValue()"
   />
   <div *ngIf="isChecked" class="filling">
     <svg
@@ -23,7 +23,7 @@
     </svg>
   </div>
 </label>
-<div class="checkbox-title">
+<div class="checkbox-title" (click)="toggleValue()">
   <p>{{ label }}</p>
   <lib-unvalid-icon
     *ngIf="validate && control.errors"

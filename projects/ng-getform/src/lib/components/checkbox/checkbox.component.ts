@@ -63,8 +63,8 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
     this.onTouch = fn;
   }
 
-  toggleValue(e: boolean) {
-    this.isChecked = e;
-    this.onChange(e);
+  toggleValue() {
+    this.isChecked = !this.isChecked;
+    this.onChange(this.isChecked);
   }
 }
