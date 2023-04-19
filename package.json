@@ -1,13 +1,13 @@
 {
-  "name": "angular-form",
-  "version": "0.0.0",
+  "name": "test-app-for-halo-lab-ng-getform-package",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build-lib": "ng build ng-getform --watch"
+    "build-lib": "ng build @halo-lab/ng-getform --watch"
   },
   "private": true,
   "dependencies": {

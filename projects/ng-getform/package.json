@@ -1,5 +1,5 @@
 {
-  "name": "ng-getform",
+  "name": "@halo-lab/ng-getform",
   "version": "0.0.3",
   "files": [
     "lib/*"

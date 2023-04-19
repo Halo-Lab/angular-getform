@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { Checkbox, NgGetForm, Select, RadioGroup, Input, Button } from 'ng-getform';
+import { Checkbox, NgGetForm, Select, RadioGroup, Input, Button } from '@halo-lab/ng-getform';
 import { AppComponent } from './app.component';
 
 @NgModule({

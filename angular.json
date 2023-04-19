@@ -100,7 +100,7 @@
         }
       }
     },
-    "ng-getform": {
+    "@halo-lab/ng-getform": {
       "projectType": "library",
       "root": "projects/ng-getform",
       "sourceRoot": "projects/ng-getform/src",

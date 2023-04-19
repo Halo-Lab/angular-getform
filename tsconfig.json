@@ -12,8 +12,8 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "paths": {
-      "ng-getform": ["dist/ng-getform"],
-      "ng-getform/*": ["dist/ng-getform/*"]
+      "@halo-lab/ng-getform": ["dist/ng-getform"],
+      "@halo-lab/ng-getform/*": ["dist/ng-getform/*"]
     },
     "declaration": false,
     "downlevelIteration": true,
