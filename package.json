@@ -1,5 +1,5 @@
 {
-  "name": "test-app-for-halo-lab-ng-getform-package",
+  "name": "@halo-lab/ng-getform",
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
