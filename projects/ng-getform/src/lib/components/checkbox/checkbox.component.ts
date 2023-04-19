@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, forwardRef, HostBinding } from "@angular/core";
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { Component, OnInit, Input, HostBinding } from "@angular/core";
+import { FormControl } from "@angular/forms";
 import { addValidators, getErrorMessages } from "../../helpers";
 import { ValidationType } from "../../types";
 import { FormService } from "../../service/form.service";
@@ -10,16 +10,9 @@ let integer: number = 1;
   selector: 'lib-checkbox',
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => CheckboxComponent),
-      multi: true
-    }
-  ]
 })
 
-export class CheckboxComponent implements OnInit, ControlValueAccessor {
+export class CheckboxComponent implements OnInit {
   @Input() name: string = '';
   @Input() label: string = '';
   @Input() control: FormControl = new FormControl();
@@ -45,29 +38,8 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
     this.isChecked = this.control?.value;
   }
 
-  writeValue(value: boolean) {
-    if (value !== this.isChecked) {
-      this.isChecked = value;
-    }
-  }
-
-  onChange: Function = () => { };
-  onTouch: Function = () => { };
-
-  registerOnChange(fn: Function): void {
-    this.onChange = fn;
-  }
-
-  registerOnTouched(fn: Function): void {
-    this.onTouch = fn;
-  }
-
-  toggleValue(e: boolean) {
-    this.isChecked = e;
-    this.onChange(e);
-  }
-
-  labelClickHandler() {
-    this.toggleValue(!this.isChecked)
+  toggleValue() {
+    this.isChecked = !this.isChecked;
+    this.control.setValue(this.isChecked)
   }
 }
