@@ -1,3 +1,4 @@
+
 # @halo-lab/ng-getform
 
 ### To install package
@@ -20,68 +21,68 @@ import { NgGetform, Input , Button, Checkbox, Select, RadioGroup } from '@halo-l
 
 ### Button accepts parameters
 
-| Necessity | Property | Description |
-| :-- | :---- | :------- |
-| required| `btnLabel : string` | Text inside button |
-| optional| `btnType : string` 'filled' or 'stroke'|  Type of button (also can be 'wide' ( width : 100%)) |
-| optional|  `className : string` | Class name for custom styling|
+| Property | Type  | Necessity | Description |
+| :-- | :-- | :-- | :----- |
+| btnLabel| ` string` | required | Text inside button |
+| btnType | `string` | optional | Type of button ('filled' or 'stroke'). Also can be 'wide' ( width : 100%). Default value - 'filled' |
+| className |  `string` |  optional | Class name for custom styling|
 
 You can add events listeners directly on `<lib-button>` component.
 
 ### Input accepts parameters
 
-| Necessity | Property | Description |
-| :-- | :---- | :------- |
-| required| `control : FormControl` | Variable which control input value (new FormControl(yourValue : string)). Actually you can use all methods that are avalilable with [Angular FormControl](https://angular.io/api/forms/FormControl) |
-| required|`inputId: string or number` |  Unique ID of an input field |
-| optional|`label : string` | The label of an input|
-| optional|`placeholder : string` | Input placeholder (by default equal to `label`)|
-| optional|`validator : { type: string, message: string, value?: string or number }[]`  | Array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: for max, min, maxLength, minLength, pattern validators}. Validator's types may be: `required`, `email`, `number`, `maxLength`, `minLength`, `max`, `min`, `pattern`. For example: `[ { type: 'required', message: 'Required field' },{ type: 'minLength', message: 'At least 2 characters', value: 2 },{ type: 'pattern', message: 'Only letters', value: '[a-zA-Z]+' }]`|
-| optional|`multiRows : boolean` | When equal true, will be rendered `<textarea>`, otherwise a `<input>`|
-| optional|`type : string` | Input type (default 'text')|
-| optional|`className : string` | Class name for custom styling|
+| Property | Type  | Necessity | Description |
+| :-- | :-- | :-- | :----- |
+| control | [`FormControl`](https://angular.io/api/forms/FormControl)  | required  | Variable which control input value (new FormControl(yourValue : string)). Actually you can use all methods that are avalilable with [Angular FormControl](https://angular.io/api/forms/FormControl) |
+| inputId | `string or number` | required |  Unique ID of an input field |
+| label| `string` | optional | The label of an input|
+| placeholder | `string` | optional | Input placeholder (by default equal to `label`)|
+| validator : | `{ type: string, message: string, value?: string or number }[]` | optional | Array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: for max, min, maxLength, minLength, pattern validators}. Validator's types may be: `required`, `email` , `number` , `maxLength`, `minLength`, `max`, `min`, `pattern`. For example: `[ { type: 'required', message: 'Required field' },{ type: 'minLength', message: 'At least 2 characters', value: 2 },{ type: 'pattern', message: 'Only letters', value: '[a-zA-Z]+' }]`|
+| multiRows| ` boolean` | optional | When equal true, will be rendered `<textarea>`, otherwise a `<input>`|
+| type | `string` | optional |  Input type (default 'text')|
+| className | `string` | optional | Class name for custom styling|
 
 
 ### Checkbox accepts parameters
 
-| Necessity | Property | Description |
-| :-- | :---- | :------- |
-| required| `name : string`| The name of an checkbox field |
-| required|`label : string` | The label of an checkbox|
-| required| `control : FormControl` | Variable which control checkbox value (new FormControl(yourValue : boolean)). Actually you can use all methods that are avalilable with [Angular FormControl](https://angular.io/api/forms/FormControl). |
-| optional|`validator : { type: string, message: string, value?: string or number }[]`  | the array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: string or number}. The validator's name may be: `requiredTrue`. For example: `[{name: "requiredTrue", message: "Please accept our terms"}]`.|
-| optional|`className : string` | Class name for custom styling|
+| Property | Type  | Necessity | Description |
+| :-- | :-- | :-- | :----- |
+| name | `string`| required |  The name of an checkbox field |
+| label |` string`  | required | The label of an checkbox|
+| control | [`FormControl`](https://angular.io/api/forms/FormControl)   | required | Variable which control checkbox value (new FormControl(yourValue : boolean)). Actually you can use all methods that are avalilable with [Angular FormControl](https://angular.io/api/forms/FormControl). |
+| validator |`{ type: string, message: string, value?: string or number }[]`  | optional | Array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: string or number}. The validator's name may be: `requiredTrue`. For example: `[{name: "requiredTrue", message: "Please accept our terms"}]`.|
+| className | `string` | optional | Class name for custom styling|
 
 ## RadioGroup accepts parameters
 
-| Necessity | Property | Description |
-| :-- | :---- | :------- |
-| required| `name : string`| The name of an radio group input |
-| required|`label : string` | he label of an radio group|
-| required|`items : {name:string,value:string}[]` | Array of options  |
-| required| `control : FormControl` | Variable which control radio group value (new FormControl(yourValue : string or number)). Actually you can use all methods that are avalilable with [Angular FormControl](https://angular.io/api/forms/FormControl). |
-| optional|`validator : { type: string, message: string, value?: string or number }[]`  | Array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: string or number}. The validator's name may be: `required`. For example: `[{name: "required", message: "You must select one option"}]`.|
-| optional|`orientation? : string (vertical or horizontal)` | Property that allow you to control buttons group orientation. Default value : vertical|
-| optional|`className : string` | Class name for custom styling|
+| Property | Type  | Necessity | Description |
+| :-- | :-- | :-- | :----- |
+| name | `string`| required | The name of an radio group input |
+| label |`string` | required | he label of an radio group|
+| items | ` {name:string,value:string}[]` | required | Array of options  |
+| required | [`FormControl`](https://angular.io/api/forms/FormControl)   | required | Variable which control radio group value (new FormControl(yourValue : string or number)). Actually you can use all methods that are avalilable with [Angular FormControl](https://angular.io/api/forms/FormControl). |
+| validator |`{ type: string, message: string, value?: string or number }[]` | optional | Array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: string or number}. The validator's name may be: `required`. For example: `[{name: "required", message: "You must select one option"}]`.|
+| orientation |`string (vertical or horizontal)` |  optional | Property that allow you to control buttons group orientation. Default value : vertical|
+| className | `string` | optional | Class name for custom styling|
 
 ## Select accepts parameters
 
-| Necessity | Property | Description |
-| :-- | :---- | :------- |
-| required| `placeholder : string`| Question before select component |
-| required|`options : string[]` | Array of options|
-| required| `control : FormControl` | Variable which control radio group value (new FormControl(yourValue : string)). Actually you can use all methods that are avalilable with [Angular FormControl](https://angular.io/api/forms/FormControl). |
-| optional|`validator : { type: string, message: string, value?: string or number }[]`  | Array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: string or number}. The validator's name may be: `required`. For example: `[{name: "required", message: "Please select your favourite fruit"}]`.|
-| optional|`searchEnabled : boolean` |  Enable/disable search bar for select options|
-| optional|`className : string` | Class name for custom styling|
+| Property | Type  | Necessity | Description |
+| :-- | :-- | :-- | :----- |
+| placeholder| `string`| required | Question before select component |
+| options | `string[]` | required | Array of options|
+| control | [`FormControl`](https://angular.io/api/forms/FormControl)   | required | Variable which control radio group value (new FormControl(yourValue : string)). Actually you can use all methods that are avalilable with [Angular FormControl](https://angular.io/api/forms/FormControl). |
+| validator |`{ type: string, message: string, value?: string or number }[]` | optional | Array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: string or number}. The validator's name may be: `required`. For example: `[{name: "required", message: "Please select your favourite fruit"}]`.|
+| searchEnabled | `boolean` | optional |  Enable/disable search bar for select options|
+| className | `string` | optional | Class name for custom styling|
 
 ### NgGetform accepts parameters
-| Necessity | Property | Description |
-| :-- | :---- | :------- |
-| required| `targetUrl : string`| The url of your endpoint on getform |
-| required|`formGroup : FormGroup` | A [FormGroup](https://angular.io/api/forms/FormGroup) aggregates the values of each child FormControl into one object, with each control name as the key. It calculates its status by reducing the status values of its children.|
-| optional|`successCallback: Function` |  Function that will be called after successful submission of the form data on getform.io|
-| optional|`className : string` | Class name for custom form styling|
+| Property | Type  | Necessity | Description |
+| :-- | :-- | :-- | :----- |
+| targetUrl | `string`| required | The url of your endpoint on getform |
+| formGroup |[`FormGroup`](https://angular.io/api/forms/FormGroup) | required | A [FormGroup](https://angular.io/api/forms/FormGroup) aggregates the values of each child FormControl into one object, with each control name as the key. It calculates its status by reducing the status values of its children.|
+| successCallback | `Function` | optional |  Function that will be called after successful submission of the form data on getform.io|
+| className | `string` | optional | Class name for custom form styling|
 
 ### Example of usage
 #### HTML 
