@@ -1,4 +1,4 @@
-import { Validators, FormControl } from "@angular/forms";
+import { Validators, FormControl, AbstractControl, ValidatorFn } from "@angular/forms";
 import { ValidationType } from "./types";
 
 export const getErrorMessages = (validation: ValidationType[]) => {
@@ -37,7 +37,7 @@ export const addValidators = (control: FormControl, validation: ValidationType[]
         return control.addValidators(Validators.min(Number(current.value) || 0))
 
       case 'email':
-        return control.addValidators(Validators.email)
+        return control.addValidators(customEmailValidator())
 
       case 'pattern':
         return control.addValidators(Validators.pattern(
@@ -49,4 +49,17 @@ export const addValidators = (control: FormControl, validation: ValidationType[]
     }
   })
   control.updateValueAndValidity();
+}
+
+const customEmailValidator = (): ValidatorFn => {
+  return (control: AbstractControl): { [key: string]: boolean } | null => {
+    const email = control.value;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValidEmail = emailRegex.test(email);
+
+    if (!isValidEmail) {
+      return { 'email': true }
+    }
+    return null
+  }
 }
