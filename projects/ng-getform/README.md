@@ -1,4 +1,3 @@
-
 # @halo-lab/ng-getform
 
 ### To install package
@@ -23,9 +22,9 @@ import { NgGetform, Input , Button, Checkbox, Select, RadioGroup } from '@halo-l
 
 | Property | Type  | Necessity | Description |
 | :-- | :-- | :-- | :----- |
-| btnLabel| ` string` | required | Text inside button |
+| btnLabel| `string` | required | Text inside button |
 | btnType | `string` | optional | Type of button ('filled' or 'stroke'). Also can be 'wide' ( width : 100%). Default value - 'filled' |
-| className |  `string` |  optional | Class name for custom styling|
+| className | `string` |  optional | Class name for custom styling|
 
 You can add events listeners directly on `<lib-button>` component.
 
@@ -37,7 +36,7 @@ You can add events listeners directly on `<lib-button>` component.
 | inputId | `string or number` | required |  Unique ID of an input field |
 | label| `string` | optional | The label of an input|
 | placeholder | `string` | optional | Input placeholder (by default equal to `label`)|
-| validator : | `{ type: string, message: string, value?: string or number }[]` | optional | Array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: for max, min, maxLength, minLength, pattern validators}. Validator's types may be: `required`, `email` , `number` , `maxLength`, `minLength`, `max`, `min`, `pattern`. For example: `[ { type: 'required', message: 'Required field' },{ type: 'minLength', message: 'At least 2 characters', value: 2 },{ type: 'pattern', message: 'Only letters', value: '[a-zA-Z]+' }]`|
+| validator | `{type: string, message: string, value?: string or number}[]` | optional | Array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: for max, min, maxLength, minLength, pattern validators}. Validator's types may be: `required`, `email` , `number` , `maxLength`, `minLength`, `max`, `min`, `pattern`. For example: `[ { type: 'required', message: 'Required field' },{ type: 'minLength', message: 'At least 2 characters', value: 2 },{ type: 'pattern', message: 'Only letters', value: '[a-zA-Z]+' }]`|
 | multiRows| ` boolean` | optional | When equal true, will be rendered `<textarea>`, otherwise a `<input>`|
 | type | `string` | optional |  Input type (default 'text')|
 | className | `string` | optional | Class name for custom styling|
@@ -48,9 +47,9 @@ You can add events listeners directly on `<lib-button>` component.
 | Property | Type  | Necessity | Description |
 | :-- | :-- | :-- | :----- |
 | name | `string`| required |  The name of an checkbox field |
-| label |` string`  | required | The label of an checkbox|
+| label |`string`  | required | The label of an checkbox|
 | control | [`FormControl`](https://angular.io/api/forms/FormControl)   | required | Variable which control checkbox value (new FormControl(yourValue : boolean)). Actually you can use all methods that are avalilable with [Angular FormControl](https://angular.io/api/forms/FormControl). |
-| validator |`{ type: string, message: string, value?: string or number }[]`  | optional | Array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: string or number}. The validator's name may be: `requiredTrue`. For example: `[{name: "requiredTrue", message: "Please accept our terms"}]`.|
+| validator |`{type: string, message: string, value?: string or number}[]`  | optional | Array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: string or number}. The validator's name may be: `requiredTrue`. For example: `[{name: "requiredTrue", message: "Please accept our terms"}]`.|
 | className | `string` | optional | Class name for custom styling|
 
 ## RadioGroup accepts parameters
@@ -59,9 +58,9 @@ You can add events listeners directly on `<lib-button>` component.
 | :-- | :-- | :-- | :----- |
 | name | `string`| required | The name of an radio group input |
 | label |`string` | required | he label of an radio group|
-| items | ` {name:string,value:string}[]` | required | Array of options  |
+| items | `{name:string,value:string}[]` | required | Array of options  |
 | required | [`FormControl`](https://angular.io/api/forms/FormControl)   | required | Variable which control radio group value (new FormControl(yourValue : string or number)). Actually you can use all methods that are avalilable with [Angular FormControl](https://angular.io/api/forms/FormControl). |
-| validator |`{ type: string, message: string, value?: string or number }[]` | optional | Array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: string or number}. The validator's name may be: `required`. For example: `[{name: "required", message: "You must select one option"}]`.|
+| validator |`{type: string, message: string, value?: string or number}[]` | optional | Array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: string or number}. The validator's name may be: `required`. For example: `[{name: "required", message: "You must select one option"}]`.|
 | orientation |`string (vertical or horizontal)` |  optional | Property that allow you to control buttons group orientation. Default value : vertical|
 | className | `string` | optional | Class name for custom styling|
 
@@ -72,7 +71,7 @@ You can add events listeners directly on `<lib-button>` component.
 | placeholder| `string`| required | Question before select component |
 | options | `string[]` | required | Array of options|
 | control | [`FormControl`](https://angular.io/api/forms/FormControl)   | required | Variable which control radio group value (new FormControl(yourValue : string)). Actually you can use all methods that are avalilable with [Angular FormControl](https://angular.io/api/forms/FormControl). |
-| validator |`{ type: string, message: string, value?: string or number }[]` | optional | Array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: string or number}. The validator's name may be: `required`. For example: `[{name: "required", message: "Please select your favourite fruit"}]`.|
+| validator |`{type: string, message: string, value?: string or number}[]` | optional | Array of objects in the form of {type: validation type , message: text for unvalid tooltip, value?: string or number}. The validator's name may be: `required`. For example: `[{name: "required", message: "Please select your favourite fruit"}]`.|
 | searchEnabled | `boolean` | optional |  Enable/disable search bar for select options|
 | className | `string` | optional | Class name for custom styling|
 
