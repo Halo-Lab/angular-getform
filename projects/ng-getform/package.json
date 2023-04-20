@@ -1,8 +1,16 @@
 {
   "name": "@halo-lab/ng-getform",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "files": [
-    "lib/*"
+    "esm2020/*",
+    "fesm2015/*",
+    "fesm2020/*",
+    "lib/*",
+    "public-api.d.ts",
+    "README.md",
+    "package.json",
+    "index.d.ts",
+    "LICENSE"
   ],
   "license": "ISC",
   "repository": {

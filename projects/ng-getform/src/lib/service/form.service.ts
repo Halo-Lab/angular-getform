@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class FormService {
-  validate: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  validate = new BehaviorSubject<boolean>(false);
 
   constructor() { }
 
