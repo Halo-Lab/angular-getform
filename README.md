@@ -9,6 +9,10 @@
 ```sh
 ng build @halo-lab/ng-getform --watch
 ```
+#### If you need to create production build of `@halo-lab/ng-getform` you must run :
+```sh
+ng build @halo-lab/ng-getform --configuration=production
+```
 # @halo-lab/ng-getform
 
 ### To install package
